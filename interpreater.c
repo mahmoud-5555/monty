@@ -14,7 +14,7 @@ int main(int argn, char *argv[])
 	if (argn < 2)
 	{
 		/*error for intery point */
-		excute_error('i', 0);
+		excute_error('i', 0, NULL);
 		exit(EXIT_FAILURE);
 	}
 	handel_file(argv[1]);
@@ -37,11 +37,11 @@ void handel_file(char *file_name)
 	file = fopen(file_name, "r+");
 	if (file == NULL)
 		/*error file reading */
-		excute_error('f', 0);
+		excute_error('f', 0, file_name);
 
 	while ((read = getline(&line, &len, file)) != -1)
 	{
-		printf("%s", line);
+		printf("%s", line);//handel_line function start hear.
 	}
 
 	fclose(file);

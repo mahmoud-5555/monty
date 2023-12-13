@@ -11,7 +11,7 @@ void push_head(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (!new_node)
-		excute_error('M', line_number);
+		excute_error('M', line_number, NULL);
 
 	if ((*stack) != NULL)
 	{
@@ -40,7 +40,7 @@ void push_tail(stack_t **stack, unsigned int line_number)
 	stack_t *new_node = malloc(sizeof(stack_t));
 
 	if (!new_node)
-		excute_error('M', line_number);
+		excute_error('M', line_number, NULL);
 		/*function that print ERROR depind on error type*/
 
 	if ((*stack) != NULL)
