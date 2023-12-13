@@ -3,10 +3,14 @@
 
 #include<stdio.h>
 #include<stdlib.h>
+#include <sys/types.h>
 
 /*(genral)*/
 extern int temp_instruction;
+extern char invers;/*falg to make the invers of the stack*/
+
 excute_error(char TYPE_OF_ERROR, unsigned int line_number);
+
 
 
 
@@ -47,8 +51,8 @@ typedef struct data_t
 /***(functions)***/
 /*(stack)*/
 void Push_tail(stack_t **stack, unsigned int line_number);
-void pall_queue(stack_t **stack, unsigned int line_number);
-void pall_stack(stack_t **stack, unsigned int line_number);
+void pall_front(stack_t **stack, unsigned int line_number);
+void pall_back(stack_t **stack, unsigned int line_number);
 /*(queue)*/
 void push_head(stack_t **stack, unsigned int line_number);
 

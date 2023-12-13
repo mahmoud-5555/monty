@@ -60,13 +60,13 @@ void push_tail(stack_t **stack, unsigned int line_number)
 }
 
 /**
- *  pall_queue - function that print all the data and don't print any
+ *  pall_front - function that print all the data and don't print any
  * thing if no data <print statring from the head>
  * @stack: pointer to stack <head>
  * @line_number: number of line in the file help in error // handel
  * return: no return
 */
-void pall_queue(stack_t **stack, unsigned int line_number)
+void pall_front(stack_t **stack, unsigned int line_number)
 {
 	/*stak  <pointer to head> from the head to tail*/
 	stack_t *it = *stack;
@@ -81,14 +81,14 @@ void pall_queue(stack_t **stack, unsigned int line_number)
 }
 
 /**
- *  pall_stack - function that print all the data and don't print any
+ *  pall_back - function that print all the data and don't print any
  * thing if no data <print statring from the <<tail>> and revarce the print>
  * @stack: pointer to stack <tail>
  * @line_number: number of line in the file help in error // handel
  * return: no return
 */
 
-void pall_stack(stack_t **stack, unsigned int line_number)
+void pall_back(stack_t **stack, unsigned int line_number)
 {
 	stack_t *it = *stack;
 
