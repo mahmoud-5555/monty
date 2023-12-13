@@ -9,7 +9,8 @@
 extern int temp_instruction;
 extern char invers;/*falg to make the invers of the stack*/
 
-excute_error(char TYPE_OF_ERROR, unsigned int line_number);
+void excute_error(char TYPE_OF_ERROR, unsigned int line_number);
+void handel_file(char *file_name);
 
 
 
