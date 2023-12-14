@@ -1,18 +1,9 @@
-
-push 2
-  push 3
-                   pall    
-
-
-                           
-push 4
-
-    push 5    
-      push    6    
-      push 1212
-      pall  
-  push -776
-
-  pall
-    
-
+pall
+push 4 
+push 12
+push 170
+pall
+push                                 6655
+pall
+push 434878 
+pull 

@@ -21,6 +21,7 @@ void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode)
 		free_stack(my_data.head);
 		free(my_data.line);
 		fclose(my_data.file);
+		exit(EXIT_FAILURE);
 	}
 	else if (TYPE_OF_ERROR == 'i')
 	{
