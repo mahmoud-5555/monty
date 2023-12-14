@@ -1,5 +1,6 @@
 #include"monty.h"
 
+
 /**
  * push_head - function that push in the head of the data
  * @stack: pointer to stack <head>
@@ -90,9 +91,9 @@ void push_tail(stack_t **stack, unsigned int line_number)
 */
 void pall_front(stack_t **stack, unsigned int line_number)
 {
-	/*stak  <pointer to head> from the head to tail*/
 	stack_t *it = *stack;
 
+	(void) line_number;
 	while (!it)
 	{
 		printf("%d\n", it->n);
@@ -113,6 +114,9 @@ void pall_front(stack_t **stack, unsigned int line_number)
 void pall_back(stack_t **stack, unsigned int line_number)
 {
 	stack_t *it = my_data.tail;
+
+	(void) stack;
+	(void) line_number;
 
 	while (it)
 	{
