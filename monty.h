@@ -38,8 +38,11 @@ typedef struct data_t
 {
 	struct stack_s *head;
 	struct stack_s *tail;
-	int temp_instruction;
+	char *temp_instruction;
 	char invers;
+	FILE *file;
+	char *line;
+	int mode;
 
 } data;
 
@@ -65,14 +68,17 @@ extern MY_DATA;
 
 void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode);
 void handel_file(char *file_name);
-int line_handler(char *line);
+int line_handler(char *line, unsigned int line_number);
+int do_instruction(char *input[], unsigned int line_number); 
+int valid(char *number_, int *number);
 
 /***(functions)***/
 /*(stack)*/
-void Push_tail(stack_t **stack, unsigned int line_number);
+void push_tail(stack_t **stack, unsigned int line_number);
 void pall_front(stack_t **stack, unsigned int line_number);
 void pall_back(stack_t **stack, unsigned int line_number);
 /*(queue)*/
 void push_head(stack_t **stack, unsigned int line_number);
+void free_stack(stack_t *head);
 
 #endif

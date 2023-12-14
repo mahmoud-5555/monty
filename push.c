@@ -9,13 +9,22 @@
 void push_head(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+	int var;
 
+	if (valid(my_data.temp_instruction, &var))
+		excute_error('P', line_number, NULL);
 	if (!new_node)
+	{
 		excute_error('M', line_number, NULL);
-
+		/*function that print ERROR depind on error type*/
+		free(my_data.line);
+		fclose(my_data.file);
+		exit(EXIT_FAILURE);
+	}
+/*Function that print ERROR depind on error type*/
+	new_node->n = var;
 	if ((*stack) != NULL)
 	{
-		new_node->n = my_data.temp_instruction;/* is gloable vaid variable */
 		(*stack)->prev = new_node;
 		new_node->next = *stack;
 		new_node->prev = NULL;
@@ -26,6 +35,7 @@ void push_head(stack_t **stack, unsigned int line_number)
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*stack = new_node;
+		my_data.tail = new_node;
 	}
 }
 
@@ -38,24 +48,30 @@ void push_head(stack_t **stack, unsigned int line_number)
 void push_tail(stack_t **stack, unsigned int line_number)
 {
 	stack_t *new_node = malloc(sizeof(stack_t));
+	int var;
 
+	if (valid(my_data.temp_instruction, &var))
+		excute_error('P', line_number, NULL);
 	if (!new_node)
+	{
 		excute_error('M', line_number, NULL);
 		/*function that print ERROR depind on error type*/
-
+		exit(EXIT_FAILURE);
+	}
+	new_node->n = var;
 	if ((*stack) != NULL)
 	{
-		new_node->n = my_data.temp_instruction;/* is gloable vaid variable */
-		(*stack)->next = new_node;
-		new_node->prev = *stack;
+		(my_data.tail)->next = new_node;
+		new_node->prev = my_data.tail;
 		new_node->next = NULL;
-		*stack = new_node;
+		my_data.tail = new_node;
 	}
 	else
 	{
 		new_node->next = NULL;
 		new_node->prev = NULL;
 		*stack = new_node;
+		my_data.tail = new_node;
 	}
 }
 
@@ -73,7 +89,7 @@ void pall_front(stack_t **stack, unsigned int line_number)
 
 	while (!it)
 	{
-		printd("%d\n", it->n);
+		printf("%d\n", it->n);
 		it = it->next;
 	}
 
@@ -90,11 +106,11 @@ void pall_front(stack_t **stack, unsigned int line_number)
 
 void pall_back(stack_t **stack, unsigned int line_number)
 {
-	stack_t *it = *stack;
+	stack_t *it = my_data.tail;
 
 	while (!it)
 	{
-		printd("%d\n", it->n);
+		printf("%d\n", it->n);
 		it = it->prev;
 	}
 
