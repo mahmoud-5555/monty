@@ -96,7 +96,7 @@ void pall_front(stack_t **stack, unsigned int line_number)
 	(void) line_number;
 	while (!it)
 	{
-		printf("%d\n", it->n);
+		fprintf(stdout, "%d\n", it->n);
 		it = it->next;
 	}
 
@@ -120,7 +120,7 @@ void pall_back(stack_t **stack, unsigned int line_number)
 
 	while (it)
 	{
-		printf("%d\n", it->n);
+		fprintf(stdout, "%d\n", it->n);
 		it = it->prev;
 	}
 
