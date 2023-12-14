@@ -3,7 +3,7 @@
 /**
  * pint - prints the value at the top of the stack\n
  * @head: double pointer to the head
- * @Nline: line number
+ * @line_number: line number
  */
 void pint(stack_t **head, unsigned int line_number)
 {
@@ -17,7 +17,7 @@ void pint(stack_t **head, unsigned int line_number)
 /**
  * swap - swaps the top two elements of the stack
  * @head: double pointer to the head
- * @Nline: line number
+ * @line_number: line number
  */
 void swap(stack_t **head, unsigned int line_number)
 {
