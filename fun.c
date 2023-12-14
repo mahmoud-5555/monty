@@ -42,7 +42,7 @@ void swap(stack_t **head, unsigned int Nline)
 void pop(stack_t **stack, unsigned int line_number)
 {
 	stack_t *tmp;
-
+	(void) line_number;
 	if (stack == NULL || *stack == NULL)
 	{
 		fprintf(stderr, "Error: can't pop, stack empty\n");
@@ -64,6 +64,7 @@ void add(stack_t **stack, unsigned int line_number)
 {
 	int sum;
 
+	(void) line_number;
 	if (stack == NULL || *stack == NULL || (*stack)->next == NULL)
 	{
 		fprintf(stderr, "Error: can't add, stack too short\n");
