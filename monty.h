@@ -81,4 +81,6 @@ void pall_back(stack_t **stack, unsigned int line_number);
 void push_head(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
 
+void swap(stack_t **head, unsigned int Nline);
+void pint(stack_t **head, unsigned int Nline);
 #endif
