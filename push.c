@@ -12,7 +12,10 @@ void push_head(stack_t **stack, unsigned int line_number)
 	int var;
 
 	if (valid(my_data.temp_instruction, &var))
+	{
+		free(new_node);
 		excute_error('P', line_number, NULL);
+	}
 	if (!new_node)
 	{
 		excute_error('M', line_number, NULL);
@@ -51,7 +54,10 @@ void push_tail(stack_t **stack, unsigned int line_number)
 	int var;
 
 	if (valid(my_data.temp_instruction, &var))
+	{
+		free(new_node);
 		excute_error('P', line_number, NULL);
+	}
 	if (!new_node)
 	{
 		excute_error('M', line_number, NULL);
@@ -59,7 +65,7 @@ void push_tail(stack_t **stack, unsigned int line_number)
 		exit(EXIT_FAILURE);
 	}
 	new_node->n = var;
-	if ((*stack) != NULL)
+	if ((my_data.tail) != NULL)
 	{
 		(my_data.tail)->next = new_node;
 		new_node->prev = my_data.tail;
@@ -108,7 +114,7 @@ void pall_back(stack_t **stack, unsigned int line_number)
 {
 	stack_t *it = my_data.tail;
 
-	while (!it)
+	while (it)
 	{
 		printf("%d\n", it->n);
 		it = it->prev;

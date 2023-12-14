@@ -30,13 +30,17 @@ int main(int argn, char *argv[])
 */
 void handel_file(char *file_name)
 {
-	my_data.mode = 0;
-	my_data.line = NULL;
 	size_t len = 0;
 	ssize_t read;
 	unsigned int line_number = 0;
 
+	my_data.mode = 0;
+	my_data.line = NULL;
+	my_data.head = NULL;
+	my_data.tail = NULL;
+	my_data.temp_instruction = NULL;
 	my_data.file = fopen(file_name, "r+");
+
 	if (my_data.file == NULL)
 		excute_error('f', 0, file_name);
 
@@ -49,6 +53,7 @@ void handel_file(char *file_name)
 	fclose(my_data.file);
 	if (my_data.line)
 		free(my_data.line);
+	free_stack(my_data.head);
 }
 /**
  * line_handler - function that handel the line <cut it>
@@ -62,13 +67,13 @@ int line_handler(char *line, unsigned int line_number)
 	char *token;
 	int i = 0;
 
-	char *inst[2];
+	char *inst[] = {NULL, NULL};
 
 	token = strtok(line, " ");
 	while (token != NULL && i < 2)
 	{
 		inst[i] =  token;
-		token = strtok(NULL, " ");
+		token = strtok(NULL, " \t\n");
 		i += 1;
 	}
 	do_instruction(inst, line_number);
@@ -94,7 +99,10 @@ int do_instruction(char *input[], unsigned int line_number)
 		if (!strcmp(instruction[i].opcode, input[0]))
 		{
 			if (!(my_data.mode))
+			{
+				my_data.temp_instruction = input[1];
 				((instruction[i].f)(&(my_data.head), line_number));
+			}
 			flag_test_faile = 0;
 		}
 	}

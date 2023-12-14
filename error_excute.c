@@ -37,10 +37,9 @@ void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode)
 	}
 	else if (TYPE_OF_ERROR == 'P')
 	{
-		fprintf(stderr, "L%u: usage: push integer %s\n", line_number, opcode);
+		fprintf(stderr, "L%u: usage: push integer\n", line_number);
 		free(my_data.line);
 		fclose(my_data.file);
-		free(my_data.line);
 		free_stack(my_data.head);
 		exit(EXIT_FAILURE);
 	}
@@ -54,15 +53,27 @@ void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode)
 */
 int valid(char *number_, int *number)
 {
-	char *str = "-123";
-	char *endptr;
-	int errno = 0;
+	int sign = 0;
+	char *it = number_;
 
-	 *number = strtol(number_, &endptr, 10);
-	if (errno != 0 || *endptr != '\0' || endptr == str)
+	if (it == NULL)
 		return (1);
-	else
+
+	while (*it != '\0')
+	{
+		if (*it == '-')
+			sign++;
+
+		if (!(*it >= '0' && *it <= '9') && *it != '-')
+			return (1);
+		it++;
+	}
+	if (sign <= 1)
+	{
+		*number = atoi(number_);
 		return (0);
+	}
+		return (1);
 }
 /**
  * free_stack - function that free the stack
@@ -73,7 +84,7 @@ void free_stack(stack_t *head)
 {
 	stack_t *temp = head;
 
-	while (!head)
+	while (head)
 	{
 		temp = head->next;
 		free(head);
