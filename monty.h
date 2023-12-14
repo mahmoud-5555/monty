@@ -4,15 +4,7 @@
 #include<stdio.h>
 #include<stdlib.h>
 #include <sys/types.h>
-
-/*(genral)*/
-extern int temp_instruction;
-extern char invers;/*falg to make the invers of the stack*/
-
-void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode);
-void handel_file(char *file_name);
-
-
+#include <string.h>
 
 
 /**
@@ -46,17 +38,10 @@ typedef struct data_t
 {
 	struct stack_s *head;
 	struct stack_s *tail;
+	int temp_instruction;
+	char invers;
+
 } data;
-
-
-/***(functions)***/
-/*(stack)*/
-void Push_tail(stack_t **stack, unsigned int line_number);
-void pall_front(stack_t **stack, unsigned int line_number);
-void pall_back(stack_t **stack, unsigned int line_number);
-/*(queue)*/
-void push_head(stack_t **stack, unsigned int line_number);
-
 
 
 /*************************************************************************/
@@ -73,4 +58,21 @@ typedef struct instruction_s
 	char *opcode;
 	void (*f)(stack_t **stack, unsigned int line_number);
 } instruction_t;
+
+/*(genral)*/
+#define  MY_DATA data my_data
+extern MY_DATA;
+
+void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode);
+void handel_file(char *file_name);
+int line_handler(char *line);
+
+/***(functions)***/
+/*(stack)*/
+void Push_tail(stack_t **stack, unsigned int line_number);
+void pall_front(stack_t **stack, unsigned int line_number);
+void pall_back(stack_t **stack, unsigned int line_number);
+/*(queue)*/
+void push_head(stack_t **stack, unsigned int line_number);
+
 #endif

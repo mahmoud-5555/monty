@@ -15,7 +15,7 @@ void push_head(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) != NULL)
 	{
-		new_node->n = temp_instruction;/* is gloable vaid variable */
+		new_node->n = my_data.temp_instruction;/* is gloable vaid variable */
 		(*stack)->prev = new_node;
 		new_node->next = *stack;
 		new_node->prev = NULL;
@@ -45,7 +45,7 @@ void push_tail(stack_t **stack, unsigned int line_number)
 
 	if ((*stack) != NULL)
 	{
-		new_node->n = temp_instruction;/* is gloable vaid variable */
+		new_node->n = my_data.temp_instruction;/* is gloable vaid variable */
 		(*stack)->next = new_node;
 		new_node->prev = *stack;
 		new_node->next = NULL;

@@ -11,12 +11,18 @@
 void excute_error(char TYPE_OF_ERROR, unsigned int line_number, char *opcode)//handel file ERROR
 {
 	if (TYPE_OF_ERROR == 'e')
+	{
 		fprintf(stderr, "USAGE: monty file\n");
+		exit(EXIT_FAILURE);
+	}
 	else if (TYPE_OF_ERROR == 'M')
 		fprintf(stderr, "Error: malloc failed\n");
 	else if (TYPE_OF_ERROR == 'i')
-		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);
+		fprintf(stderr, "L%u: unknown instruction %s\n", line_number, opcode);//
 	else if (TYPE_OF_ERROR == 'f')
-		fprintf(stderr, "Error: Can't open file <file>", opcode);
+	{
+		fprintf(stderr, "Error: Can't open file %s\n", opcode);
+		exit(EXIT_FAILURE);
+	}
 
 }
