@@ -21,9 +21,6 @@ void push_head(stack_t **stack, unsigned int line_number)
 	{
 		excute_error('M', line_number, NULL);
 		/*function that print ERROR depind on error type*/
-		free(my_data.line);
-		fclose(my_data.file);
-		exit(EXIT_FAILURE);
 	}
 /*Function that print ERROR depind on error type*/
 	new_node->n = var;
@@ -63,7 +60,6 @@ void push_tail(stack_t **stack, unsigned int line_number)
 	{
 		excute_error('M', line_number, NULL);
 		/*function that print ERROR depind on error type*/
-		exit(EXIT_FAILURE);
 	}
 	new_node->n = var;
 	if ((my_data.tail) != NULL)
