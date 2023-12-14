@@ -23,7 +23,8 @@ void swap(stack_t **head, unsigned int Nline)
 {
 	int tmp;
 
-	if (*head == NULL || (*head)->next == NULL) {
+	if (*head == NULL || (*head)->next == NULL)
+	{
 		fprintf(stderr, "L%u: can't swap, stack too short\n", Nline);
 		exit(EXIT_FAILURE);
 	}
