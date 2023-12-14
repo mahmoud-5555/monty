@@ -5,11 +5,11 @@
  * @head: double pointer to the head
  * @Nline: line number
  */
-void pint(stack_t **head, unsigned int Nline)
+void pint(stack_t **head, unsigned int line_number)
 {
 	if (*head == NULL)
 	{
-		fprintf(stderr, "L%u: can't pint, stack empty\n", Nline);
+		fprintf(stderr, "L%u: can't pint, stack empty\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 	printf("%d\n", (*head)->n);
@@ -19,13 +19,13 @@ void pint(stack_t **head, unsigned int Nline)
  * @head: double pointer to the head
  * @Nline: line number
  */
-void swap(stack_t **head, unsigned int Nline)
+void swap(stack_t **head, unsigned int line_number)
 {
 	int tmp;
 
 	if (*head == NULL || (*head)->next == NULL)
 	{
-		fprintf(stderr, "L%u: can't swap, stack too short\n", Nline);
+		fprintf(stderr, "L%u: can't swap, stack too short\n", line_number);
 		exit(EXIT_FAILURE);
 	}
 
