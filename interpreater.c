@@ -74,7 +74,7 @@ int line_handler(char *line, unsigned int line_number)
 	while (token != NULL && i < 2)
 	{
 		inst[i] =  token;
-		token = strtok(NULL, " \n\t");
+		token = strtok(NULL, " \n\t\r");
 		i += 1;
 	}
 		if (!skiping(inst[0]))
