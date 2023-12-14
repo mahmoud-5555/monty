@@ -74,10 +74,11 @@ int line_handler(char *line, unsigned int line_number)
 	while (token != NULL && i < 2)
 	{
 		inst[i] =  token;
-		token = strtok(NULL, " \t\n");
+		token = strtok(NULL, " \n\t");
 		i += 1;
 	}
-	do_instruction(inst, line_number);
+		if (!skiping(inst[0]))
+			do_instruction(inst, line_number);
 
 	return (0);
 }
@@ -97,7 +98,7 @@ int do_instruction(char *input[], unsigned int line_number)
 
 	for (i = 0; i < 2; i++)
 	{
-		if (!strcmp(instruction[i].opcode, input[0]))
+		if (!strncmp(instruction[i].opcode, input[0], 4))
 		{
 			if (!(my_data.mode))
 			{

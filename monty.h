@@ -80,5 +80,6 @@ void pall_back(stack_t **stack, unsigned int line_number);
 /*(queue)*/
 void push_head(stack_t **stack, unsigned int line_number);
 void free_stack(stack_t *head);
+int skiping(char *line);
 
 #endif

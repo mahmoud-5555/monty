@@ -91,3 +91,17 @@ void free_stack(stack_t *head)
 		head = temp;
 	}
 }
+/**
+ * skiping - function that skip the empty line
+ * @line: the string
+ * Return: 0 or 1
+*/
+int skiping(char *line)
+{
+	if (line == NULL)
+		return (1);
+	if (*line == '\0' || *line == '\n' || *line == '\t' || *line == ' ')
+		return (1);
+
+	return (0);
+}
