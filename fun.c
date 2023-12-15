@@ -16,7 +16,7 @@ void pint(stack_t **head, unsigned int line_number)
 }
 /**
  * swap - swaps the top two elements of the stack
- * @head: double pointer to the head
+ * @head: double pointer
  * @line_number: line number
  */
 void swap(stack_t **head, unsigned int line_number)
