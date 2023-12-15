@@ -2,7 +2,7 @@
 
 /**
  * pint - prints the value at the top of the stack\n
- * @head: double pointer to the head
+ * @head: double pointer
  * @line_number: line number
  */
 void pint(stack_t **head, unsigned int line_number)
